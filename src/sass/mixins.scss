@@ -1,0 +1,33 @@
+@mixin list-reset() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin text-overflow() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin align-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button-icon() {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin popover() {
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
