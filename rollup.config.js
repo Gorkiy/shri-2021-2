@@ -84,6 +84,7 @@ export default {
     isDevelopment && serve({
       open: false,
       verbose: true,
+      historyApiFallback: true,
       contentBase: ['', 'build'],
       port: 3000
     }),
