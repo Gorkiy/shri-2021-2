@@ -1,2 +1,23 @@
 @import "../../sass/variables.scss";
 @import "../../sass/mixins.scss";
+
+.footer {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: $color-bg-footer;
+}
+
+.footer__nav {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer__item {
+  margin-right: 12px;
+  flex-shrink: 0;
+
+  &:nth-last-child(2) {
+    margin-right: auto;
+  }
+}

@@ -1,8 +1,23 @@
 import React from 'react';
-import './button.scss';
+import './footer.scss';
 
-export const Button = () => {
+export const Footer = () => {
   return (
-    <button>Кнопка</button>
+    <footer className="footer wrapper">
+      <nav className="footer__nav container">
+        <a className="footer__item text text_grey link" href="#">
+          Support
+        </a>
+        <a className="footer__item text text_grey link" href="#">
+          Learning
+        </a>
+        <a className="footer__item text text_grey link" href="#">
+          Русская версия
+        </a>
+        <span className="footer__item footer__item_copy text text_grey">
+          © 2021 Peter Yakovlev
+        </span>
+      </nav>
+    </footer>
   );
 }

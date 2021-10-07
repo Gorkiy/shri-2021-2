@@ -82,7 +82,7 @@ export default {
     }),
     isDevelopment && eslint(),
     isDevelopment && serve({
-      open: false,
+      open: true,
       verbose: true,
       historyApiFallback: true,
       contentBase: ['', 'build'],

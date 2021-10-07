@@ -1,2 +1,31 @@
 @import "../../sass/variables.scss";
 @import "../../sass/mixins.scss";
+
+.content {
+  display: flex;
+}
+
+.content__container {
+  @include align-center();
+}
+
+.content__intro {
+  @include align-center();
+}
+
+.intro {
+  flex-direction: column;
+}
+
+.intro__text {
+  margin-top: 30px;
+  max-width: 260px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 125%;
+}
+
+.intro__button {
+  margin-top: 25px;
+}

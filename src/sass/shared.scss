@@ -1,2 +1,45 @@
 @import "variables.scss";
 @import "mixins.scss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
+  width: 100%;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.text {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.06px;
+  color: $color-main;
+
+  &_grey {
+    color: $color-title;
+  }
+}
+
+.link {
+  text-decoration: none;
+
+  &:hover {
+    color: #e00000;
+  }
+}
