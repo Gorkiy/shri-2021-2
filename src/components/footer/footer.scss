@@ -2,8 +2,8 @@
 @import "../../sass/mixins.scss";
 
 .footer {
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   background-color: $color-bg-footer;
 }
 
@@ -14,10 +14,21 @@
 }
 
 .footer__item {
-  margin-right: 12px;
   flex-shrink: 0;
+  margin: 4px 0;
+
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
 
   &:nth-last-child(2) {
-    margin-right: auto;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .footer {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }

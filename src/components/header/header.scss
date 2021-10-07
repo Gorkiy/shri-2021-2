@@ -18,8 +18,18 @@
 
 .header__container {
   display: flex;
+  align-items: center;
 }
 
 .header__buttons {
   margin-left: auto;
+}
+
+@media screen and (max-width: $mobile-width) {
+  .ci-server .header__title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+  }
 }
