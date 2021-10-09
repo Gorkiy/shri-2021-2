@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import './page_start.scss';
+import { Redirect } from 'react-router-dom';
+import { InitedContext } from '../../features/context/context';
 import { Header } from '../../components/header/header';
 import { Footer } from '../../components/footer/footer';
 import { ButtonLink } from '../../components/buttonLink/buttonLink';
@@ -7,6 +9,12 @@ import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import { ReactComponent as IconSettings } from '../../assets/images/icon-settings.svg';
 
 export const Start = () => {
+  const isInited = useContext(InitedContext);
+
+  if (isInited) {
+    return <Redirect to={`/history`} />
+  }
+
   return (
     <div className="page-start main">
       <Header page="start">

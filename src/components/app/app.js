@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../sass/style.scss';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history'
 import { InitedContext } from '../../features/context/context';
 // Pages
@@ -12,21 +12,32 @@ const history = createBrowserHistory();
 
 const App = () => {
   const [isSettignsInited, initSettings] = useState(false);
+  const [settings, setSettings] = useState(null);
+
+  const onSettingsChange = data => {
+    if (!isSettignsInited) initSettings(true);
+    setSettings(data);
+  }
 
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact render={(props) => (
+        {/* <Route path="/" exact render={(props) => (
           isSettignsInited
             ? <History /> : <Start />
-        )} />
+        )} /> */}
+        <Route path="/" exact>
+          <InitedContext.Provider value={isSettignsInited}>
+            {isSettignsInited ? <History settings={settings} /> : <Start />}
+          </InitedContext.Provider>
+        </Route>
         <Route path="/settings" exact>
           <InitedContext.Provider value={isSettignsInited}>
-            <Settings onChange={initSettings} />
+            <Settings onChange={onSettingsChange} settings={settings} />
           </InitedContext.Provider>
         </Route>
         <Route path="/history" exact render={(props) => (
-          isSettignsInited ? <History /> : <Start />
+          isSettignsInited ? <History settings={settings} /> : <Redirect to="/" />
         )} />
       </Switch>
     </Router>

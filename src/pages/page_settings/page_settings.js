@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { InitedContext } from '../../features/context/context';
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import { useHistory, Redirect } from 'react-router-dom';
 import { ButtonLink } from '../../components/buttonLink/buttonLink';
 import { Button } from '../../components/button/button';
 import { Header } from '../../components/header/header';
@@ -8,28 +8,31 @@ import { Footer } from '../../components/footer/footer';
 import './page_settings.scss';
 
 export const Settings = props => {
-  const [repository, setRepositoryValue] = useState('');
-  const [build, setBuildValue] = useState('');
-  const [branch, setBranch] = useState('');
-  const [syncDuration, setSyncDuration] = useState('');
-  const isInited = useContext(InitedContext);
-  // useEffect(() => console.log('isInited', isInited));
+  const { settings, onChange } = props;
+  const [repository, setRepositoryValue] = useState(settings ? settings.repository : '');
+  const [build, setBuildValue] = useState(settings ? settings.build : 'npm ci && npm run build');
+  const [branch, setBranch] = useState(settings ? settings.branch : '');
+  const [syncDuration, setSyncDuration] = useState(settings ? settings.syncDuration : '10');
+  const [isSubmitted, setSubmitted] = useState(false);
+  const formRef = useRef(null);
+  const history = useHistory();
 
   const onFormSubmit = e => {
     e.preventDefault();
-    console.log('submit');
 
-    // {
-    //   repository:
-    // }
+    onChange({
+      repository,
+      build,
+      branch,
+      syncDuration
+    });
 
-    // ...
-    props.onChange(true);
+    setSubmitted(true);
   }
 
-  useEffect(() => {
-    console.log('isInited: ', isInited);
-  })
+  if (isSubmitted) {
+    return <Redirect to={`/history/`} />
+  }
 
   return (
     <div className="page-start main">
@@ -41,7 +44,7 @@ export const Settings = props => {
               <h3 className="settings__heading heading">Settings</h3>
               <p className="settings__description description">Configure repository connection and synchronization settings.</p>
             </div>
-            <form className="settings__form form" onSubmit={onFormSubmit}>
+            <form className="settings__form form" ref={formRef} onSubmit={onFormSubmit}>
               <div className="form__group">
                 <span className="form__header">
                   GitHub repository <sup className="form__sup">*</sup>
@@ -52,6 +55,7 @@ export const Settings = props => {
                     type="text"
                     value={repository}
                     placeholder="user-name/repo-name"
+                    required={true}
                     onChange={setRepositoryValue}
                   />
                 </div>
@@ -65,6 +69,7 @@ export const Settings = props => {
                     elementClass="form__input"
                     type="text"
                     value={build}
+                    required={true}
                     placeholder="npm ci && npm run build"
                     onChange={setBuildValue}
                   />
@@ -109,8 +114,9 @@ export const Settings = props => {
                 />
                 <Button
                   title="Cancel"
-                  type="submit"
+                  type="button"
                   style="alt"
+                  onClick={() => history.goBack()}
                   elementClass="form__button"
                 />
               </div>

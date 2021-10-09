@@ -10,6 +10,7 @@ export const Input = props => {
         className={`${elementClass ? elementClass + ' ' : ''}input${type ? ` input_${type}` : ''}`}
         type={type}
         onChange={e => onChange(e.target.value)}
+        pattern=".*\S+.*"
         {...rest}
       />
       {type !== 'number' &&
