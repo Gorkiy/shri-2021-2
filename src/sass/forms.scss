@@ -1,10 +1,6 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
-.form {
-  //
-}
-
 .form__header {
   margin-bottom: 6px;
   display: inline-block;
@@ -43,6 +39,17 @@
 }
 
 // Input
+.form__input-wrapper {
+  position: relative;
+}
+
+.form__input {
+  &:hover + .form__input-clear,
+  &:focus + .form__input-clear {
+    display: flex;
+  }
+}
+
 .input {
   margin: 0;
   padding: 10px 13px;
@@ -56,6 +63,12 @@
   border: 2px solid #d9d9d9;
   outline: none;
 
+  &_number {
+    margin: 0 8px;
+    width: 52px;
+    text-align: right;
+  }
+
   &::placeholder {
     color: $color-placeholder;
   }
@@ -63,4 +76,35 @@
   &:focus {
     border: 2px solid #b3b3b3;
   }
+}
+
+.form__input-clear {
+  @include align-center();
+  display: none;
+  top: calc(50% - 10px);
+  right: 10px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.form__input-icon {
+  flex-shrink: 0;
+}
+
+.form__sup {
+  color: #e00000;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }

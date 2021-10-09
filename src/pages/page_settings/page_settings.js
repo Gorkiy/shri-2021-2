@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { InitedContext } from '../../features/context/context';
 import { ButtonLink } from '../../components/buttonLink/buttonLink';
 import { Button } from '../../components/button/button';
 import { Header } from '../../components/header/header';
@@ -11,7 +12,7 @@ export const Settings = props => {
   const [build, setBuildValue] = useState('');
   const [branch, setBranch] = useState('');
   const [syncDuration, setSyncDuration] = useState('');
-  // const isInited = useContext(InitedContext);
+  const isInited = useContext(InitedContext);
   // useEffect(() => console.log('isInited', isInited));
 
   const onFormSubmit = e => {
@@ -25,6 +26,10 @@ export const Settings = props => {
     // ...
     props.onChange(true);
   }
+
+  useEffect(() => {
+    console.log('isInited: ', isInited);
+  })
 
   return (
     <div className="page-start main">
@@ -41,37 +46,60 @@ export const Settings = props => {
                 <span className="form__header">
                   GitHub repository <sup className="form__sup">*</sup>
                 </span>
-                <Input
-                  elementClass="form__input"
-                  type="text"
-                  value={repository}
-                  placeholder="user-name/repo-name"
-                  onChange={setRepositoryValue}
-                />
+                <div className="form__input-wrapper">
+                  <Input
+                    elementClass="form__input"
+                    type="text"
+                    value={repository}
+                    placeholder="user-name/repo-name"
+                    onChange={setRepositoryValue}
+                  />
+                </div>
               </div>
               <div className="form__group">
                 <span className="form__header">
                   Build command <sup className="form__sup">*</sup>
                 </span>
-                <Input
-                  elementClass="form__input"
-                  type="text"
-                  value={build}
-                  placeholder="npm ci && npm run build"
-                  onChange={setBuildValue}
-                />
+                <div className="form__input-wrapper">
+                  <Input
+                    elementClass="form__input"
+                    type="text"
+                    value={build}
+                    placeholder="npm ci && npm run build"
+                    onChange={setBuildValue}
+                  />
+                </div>
               </div>
               <div className="form__group">
                 <span className="form__header">
                   Main branch
                 </span>
+                <div className="form__input-wrapper">
+                  <Input
+                    elementClass="form__input"
+                    type="text"
+                    value={branch}
+                    placeholder="master"
+                    onChange={setBranch}
+                  />
+                </div>
+              </div>
+              <div className="form__group form__group_inline">
+                <span className="form__header">
+                  Synchronize every
+                </span>
                 <Input
                   elementClass="form__input"
-                  type="text"
-                  value={branch}
-                  placeholder="master"
-                  onChange={setBranch}
+                  type="number"
+                  value={syncDuration}
+                  placeholder="10"
+                  min={0}
+                  max={60}
+                  onChange={setSyncDuration}
                 />
+                <span className="form__unit">
+                  minutes
+                </span>
               </div>
               <div className="form__buttons">
                 <Button

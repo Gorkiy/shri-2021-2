@@ -3,8 +3,8 @@ import './page_start.scss';
 import { Header } from '../../components/header/header';
 import { Footer } from '../../components/footer/footer';
 import { ButtonLink } from '../../components/buttonLink/buttonLink';
-import { ReactComponent as Logo } from '../../assets/logo.svg';
-import { ReactComponent as IconSettings } from '../../assets/icon-settings.svg';
+import { ReactComponent as Logo } from '../../assets/images/logo.svg';
+import { ReactComponent as IconSettings } from '../../assets/images/icon-settings.svg';
 
 export const Start = () => {
   return (
