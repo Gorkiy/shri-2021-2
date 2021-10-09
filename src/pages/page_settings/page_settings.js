@@ -9,13 +9,22 @@ import './page_settings.scss';
 
 export const Settings = props => {
   const { settings, onChange } = props;
-  const [repository, setRepositoryValue] = useState(settings ? settings.repository : '');
-  const [build, setBuildValue] = useState(settings ? settings.build : 'npm ci && npm run build');
-  const [branch, setBranch] = useState(settings ? settings.branch : '');
-  const [syncDuration, setSyncDuration] = useState(settings ? settings.syncDuration : '10');
+  const [repository, setRepositoryValue] = useState('');
+  const [build, setBuildValue] = useState('npm ci && npm run build');
+  const [branch, setBranch] = useState('');
+  const [syncDuration, setSyncDuration] = useState('10');
   const [isSubmitted, setSubmitted] = useState(false);
   const formRef = useRef(null);
   const history = useHistory();
+
+  useEffect(() => {
+    if (settings) {
+      setRepositoryValue(settings.repository);
+      setBuildValue(settings.build);
+      setBranch(settings.branch);
+      setSyncDuration(settings.duration);
+    }
+  }, [])
 
   const onFormSubmit = e => {
     e.preventDefault();
@@ -35,7 +44,7 @@ export const Settings = props => {
   }
 
   return (
-    <div className="page-start main">
+    <div className="page-settings main">
       <Header page="settings" />
       <main className="content wrapper">
         <div className="content__container container">
@@ -44,7 +53,7 @@ export const Settings = props => {
               <h3 className="settings__heading heading">Settings</h3>
               <p className="settings__description description">Configure repository connection and synchronization settings.</p>
             </div>
-            <form className="settings__form form" ref={formRef} onSubmit={onFormSubmit}>
+            <form name="settings" className="settings__form form" ref={formRef} onSubmit={onFormSubmit} method="post" action="#">
               <div className="form__group">
                 <span className="form__header">
                   GitHub repository <sup className="form__sup">*</sup>
@@ -54,6 +63,7 @@ export const Settings = props => {
                     elementClass="form__input"
                     type="text"
                     value={repository}
+                    name="repository"
                     placeholder="user-name/repo-name"
                     required={true}
                     onChange={setRepositoryValue}
@@ -69,6 +79,7 @@ export const Settings = props => {
                     elementClass="form__input"
                     type="text"
                     value={build}
+                    name="build"
                     required={true}
                     placeholder="npm ci && npm run build"
                     onChange={setBuildValue}
@@ -84,6 +95,7 @@ export const Settings = props => {
                     elementClass="form__input"
                     type="text"
                     value={branch}
+                    name="branch"
                     placeholder="master"
                     onChange={setBranch}
                   />
@@ -96,6 +108,7 @@ export const Settings = props => {
                 <Input
                   elementClass="form__input"
                   type="number"
+                  name="syncDuration"
                   value={syncDuration}
                   placeholder="10"
                   min={0}

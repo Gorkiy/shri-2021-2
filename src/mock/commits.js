@@ -8,7 +8,7 @@ export const commitsMock = [
     author: 'Philip Kirkorov',
     date: '21 янв, 03:06',
     ago: '1 ч 20 мин',
-    state: 'success'
+    status: 'done'
   },
   {
     id: 10234124,
@@ -19,7 +19,7 @@ export const commitsMock = [
     author: 'Vadim Makeev',
     date: '21 янв, 03:06',
     ago: '1 ч 20 мин',
-    state: 'fail'
+    status: 'fail'
   },
   {
     id: 10234125,
@@ -30,7 +30,7 @@ export const commitsMock = [
     author: 'Philip Kirkorov',
     date: '21 янв, 03:06',
     ago: '1 ч 20 мин',
-    state: 'success'
+    status: 'done'
   },
   {
     id: 10234126,
@@ -41,7 +41,7 @@ export const commitsMock = [
     author: 'Philip Kirkorov',
     date: '21 янв, 03:06',
     ago: '1 ч 20 мин',
-    state: 'pending'
+    status: 'pending'
   },
   {
     id: 10234127,
@@ -52,7 +52,7 @@ export const commitsMock = [
     author: 'Philip Kirkorov',
     date: '21 янв, 03:06',
     ago: '1 ч 20 мин',
-    state: 'success'
+    status: 'done'
   },
   {
     id: 10234128,
@@ -63,7 +63,7 @@ export const commitsMock = [
     author: 'Vadim Makeev',
     date: '21 янв, 03:06',
     ago: '1 ч 20 мин',
-    state: 'fail'
+    status: 'fail'
   },
   {
     id: 10234129,
@@ -74,7 +74,7 @@ export const commitsMock = [
     author: 'Philip Kirkorov',
     date: '21 янв, 03:06',
     ago: '1 ч 20 мин',
-    state: 'success'
+    status: 'done'
   },
   {
     id: 10234130,
@@ -85,7 +85,7 @@ export const commitsMock = [
     author: 'Philip Kirkorov',
     date: '21 янв, 03:06',
     ago: '1 ч 20 мин',
-    state: 'success'
+    status: 'done'
   },
   {
     id: 10234131,
@@ -96,6 +96,6 @@ export const commitsMock = [
     author: 'Philip Kirkorov',
     date: '21 янв, 03:06',
     ago: '1 ч 20 мин',
-    state: 'success'
+    status: 'done'
   }
 ]

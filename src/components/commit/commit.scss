@@ -1,0 +1,106 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.commits__item {
+  margin-bottom: 8px;
+}
+
+.commit {
+  padding: 12px 25px;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 1px 1px rgba(67, 68, 69, 0.3);
+  border-radius: 6px;
+}
+
+.commit__status {
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.commit__body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.commit__datetime {
+  width: 120px;
+}
+
+.commit__row {
+  display: flex;
+  align-items: center;
+
+  &_message {
+    align-items: baseline;
+  }
+
+  &_first {
+    margin-bottom: 8px;
+  }
+}
+
+.commit__hash {
+  margin-right: 4px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+
+  &_fail {
+    color: $color-code-fail;
+  }
+
+  &_done {
+    color: $color-code-done;
+  }
+
+  &_pending {
+    color: $color-code-pending;
+  }
+}
+
+.commit__mesage {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.commit__branch {
+  display: inline-flex;
+  align-items: center;
+}
+
+.commit__author {
+  display: inline-flex;
+  align-items: center;
+}
+
+.commit__commit {
+  margin: 0 10px 0 4px;
+}
+
+.commit-icon {
+  fill: $color-secondary;
+}
+
+.commit__branch-icon {
+  margin-right: 4px;
+}
+
+.commit__author-icon {
+  margin-right: 6px;
+}
+
+.commit__timestamp-icon,
+.commit__date-icon {
+  margin-right: 6px;
+}
+
+.commit__timestamp,
+.commit__date {
+  line-height: 1;
+}

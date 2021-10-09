@@ -1,2 +1,6 @@
 @import "../../sass/variables.scss";
 @import "../../sass/mixins.scss";
+
+.commits {
+  @include list-reset();
+}
