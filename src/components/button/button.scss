@@ -44,7 +44,11 @@
 
   &_disabled {
     pointer-events: none;
-    color: $color-bg-disabled;
+    background-color: $color-bg-disabled;
+
+    & .button__title {
+      opacity: 0.5;
+    }
   }
 }
 

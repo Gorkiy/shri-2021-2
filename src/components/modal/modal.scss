@@ -2,6 +2,7 @@
 @import "../../sass/mixins.scss";
 
 .modal {
+  @include align-center();
   position: fixed;
   left: 0;
   top: 0;
@@ -9,12 +10,25 @@
   z-index: 1500;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to top right, rgba(227, 101, 87, 0.8), rgba(238, 174, 117, 0.9));
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-// background: #FFFFFF;
-// box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 6px 16px rgba(67, 68, 69, 0.3);
-// border-radius: 4px;
+.modal__content {
+  margin: 50px auto;
+  padding: 20px;
+  width: 485px;
+  max-width: 485px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  background: #ffffff;
+  box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 6px 16px rgba(67, 68, 69, 0.3);
+  border-radius: 4px;
+}
+
+.modal__description {
+  margin-bottom: 12px;
+}
 
 .modal__overlay {
   position: fixed;
@@ -25,38 +39,15 @@
   height: 100%;
 }
 
-.modal__loader {
-  padding: 30px 40px;
-}
-
-.modal__head {
-  padding: 30px 60px 30px 40px;
-  position: relative;
-  overflow: hidden;
-  background-color: #f7f7f7;
-  border-bottom: 1px solid $border-color;
-}
-
-.modal__body {
-  padding: 30px 40px;
-}
-
 .modal__title {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin: 0;
+  margin-bottom: 12px;
+  font-family: "YS Text", sans-serif;
+  font-style: normal;
+  font-weight: 500;
   font-size: 18px;
-  font-weight: normal;
+  line-height: 22px;
   color: #000000;
-}
-
-.modal__content {
-  margin: 50px auto;
-  width: 720px;
-  max-width: 720px;
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  background: #ffffff;
 }
 
 .modal__close-button {
@@ -92,7 +83,7 @@
 
     &::before,
     &::after {
-      background-color: $accent-color;
+      // background-color: $accent-color;
     }
   }
 }

@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
-import { ROOT } from '../../utils/config';
+import { ROOT } from '../../config/config';
 import ReactDOM from 'react-dom';
 import './modal.scss';
-import PulseLoader from 'react-spinners/PulseLoader';
 
 const root = document.getElementById(ROOT);
 
 export const Modal = props => {
-  const { isShown, onClose, title, children, loading } = props;
+  const { isShown, onClose, children, title } = props;
   useEffect(() => {
-    document.addEventListener('click', onOutsideClick);
-    document.addEventListener('keydown', onKeyPress);
+    // document.addEventListener('click', onOutsideClick);
+    // document.addEventListener('keydown', onKeyPress);
     document.querySelector('body').style.overflow = 'hidden';
     return () => {
-      document.removeEventListener('click', onOutsideClick);
-      document.removeEventListener('keydown', onKeyPress);
+      // document.removeEventListener('click', onOutsideClick);
+      // document.removeEventListener('keydown', onKeyPress);
       document.querySelector('body').style.overflow = 'auto';
     };
   }, []);
@@ -38,12 +37,9 @@ export const Modal = props => {
     <aside className="modal">
       <div className="modal__content">
         {title &&
-          <div className="modal__head">
-            <h3 className="modal__title">
-              {title}
-            </h3>
-            <button className="modal__close-button" type="button" onClick={onClose}></button>
-          </div>
+          <h3 className="modal__title">
+            {title}
+          </h3>
         }
         <div className="modal__body">
           {children}
