@@ -5,10 +5,6 @@
   display: flex;
 }
 
-.content__container {
-  @include align-center();
-}
-
 .content__intro {
   @include align-center();
 }

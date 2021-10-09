@@ -1,19 +1,16 @@
 import React from 'react';
-import './button.scss';
+import { Link } from 'react-router-dom';
 
-export const Button = props => {
-  const { style, elementClass, title, icon, onClick, iconSize, size, disabled, type, ...rest } = props;
+export const ButtonLink = props => {
+  const { style, elementClass, title, icon, to, size, disabled } = props;
   const Icon = icon;
 
   const buttonClassName = `${elementClass ? elementClass + ' ' : ''}button${style ? ` button_${style}` : ''}${icon ? ` button_icon` : ''}${size ? ` button_${size}` : ''}${disabled ? ` button_disabled` : ''}`;
 
   return (
-    <button
+    <Link
       className={buttonClassName}
-      type={type || 'button'}
-      onClick={onClick}
-      disabled={disabled}
-      {...rest}
+      to={to}
     >
       {Icon &&
         <Icon className={`button__icon`}
@@ -24,6 +21,6 @@ export const Button = props => {
           {title}
         </span>
       }
-    </button>
+    </Link>
   );
 }

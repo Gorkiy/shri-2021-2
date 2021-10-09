@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import '../../sass/style.scss';
 import { Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history'
@@ -6,21 +6,29 @@ import { createBrowserHistory } from 'history'
 import { Start } from '../../pages/page_start/page_start';
 import { Settings } from '../../pages/page_settings/page_settings';
 import { History } from '../../pages/page_history/page_history';
+import ContextRoute from '../contextRoute/contextRoute';
 
 const history = createBrowserHistory();
 
 const App = () => {
-  const [isAppInited, initApp] = useState(false);
+  const [isSettignsInited, initSettings] = useState(false);
+  const InitedContext = React.createContext(isSettignsInited);
 
   return (
     <Router history={history}>
+
       <Switch>
         <Route path="/" exact render={(props) => (
-          isAppInited ? <History /> : <Start />
+          isSettignsInited
+            ? <History /> : <Start />
         )} />
-        <Route path="/settings" exact component={Settings} />
+        <Route path="/settings" exact>
+          <InitedContext.Provider value={isSettignsInited}>
+            <Settings onChange={initSettings} />
+          </InitedContext.Provider>
+        </Route>
         <Route path="/history" exact render={(props) => (
-          isAppInited ? <History /> : <Start />
+          isSettignsInited ? <History /> : <Start />
         )} />
       </Switch>
     </Router>

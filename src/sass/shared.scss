@@ -13,10 +13,29 @@
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
   max-width: $max-width;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  &_middle {
+    @include align-center();
+  }
+}
+
+.heading {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  color: $color-main;
+}
+
+.description {
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.06px;
+  color: $color-title;
 }
 
 .content {
