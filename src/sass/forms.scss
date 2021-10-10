@@ -41,13 +41,16 @@
 // Input
 .form__input-wrapper {
   position: relative;
+
+  &:hover {
+    & .form__input-clear {
+      display: flex;
+    }
+  }
 }
 
-.form__input {
-  &:hover + .form__input-clear,
-  &:focus + .form__input-clear {
-    display: flex;
-  }
+.form__input:focus + .form__input-clear {
+  display: flex;
 }
 
 .input {

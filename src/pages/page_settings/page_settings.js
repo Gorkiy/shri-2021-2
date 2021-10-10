@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
-import { ButtonLink } from '../../components/buttonLink/buttonLink';
 import { Button } from '../../components/button/button';
 import { Header } from '../../components/header/header';
 import { Input } from '../../components/input/input';
@@ -65,6 +64,7 @@ export const Settings = props => {
                     value={repository}
                     name="repository"
                     placeholder="user-name/repo-name"
+                    autoComplete="off"
                     required={true}
                     onChange={setRepositoryValue}
                   />
@@ -81,6 +81,7 @@ export const Settings = props => {
                     value={build}
                     name="build"
                     required={true}
+                    autoComplete="off"
                     placeholder="npm ci && npm run build"
                     onChange={setBuildValue}
                   />
@@ -96,6 +97,7 @@ export const Settings = props => {
                     type="text"
                     value={branch}
                     name="branch"
+                    autoComplete="off"
                     placeholder="master"
                     onChange={setBranch}
                   />

@@ -9,14 +9,20 @@ export const Modal = props => {
   const { isShown, onClose, children, title } = props;
   useEffect(() => {
     // document.addEventListener('click', onOutsideClick);
-    // document.addEventListener('keydown', onKeyPress);
-    document.querySelector('body').style.overflow = 'hidden';
+    document.addEventListener('keydown', onKeyPress);
     return () => {
       // document.removeEventListener('click', onOutsideClick);
-      // document.removeEventListener('keydown', onKeyPress);
-      document.querySelector('body').style.overflow = 'auto';
+      document.removeEventListener('keydown', onKeyPress);
     };
   }, []);
+
+  useEffect(() => {
+    if (isShown) {
+      document.querySelector('body').style.overflow = 'hidden';
+    } else {
+      document.querySelector('body').style.overflow = 'auto';
+    }
+  })
 
   const onOutsideClick = e => {
     const target = e.target;
