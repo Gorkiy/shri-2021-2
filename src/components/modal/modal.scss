@@ -14,7 +14,7 @@
 }
 
 .modal__content {
-  margin: 50px auto;
+  margin: 50px 20px;
   padding: 20px;
   width: 485px;
   max-width: 485px;
@@ -80,10 +80,20 @@
 
   &:hover {
     opacity: 1;
+  }
+}
 
-    &::before,
-    &::after {
-      // background-color: $accent-color;
-    }
+@media screen and (max-width: $mobile-width) {
+  .modal {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .modal__content {
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
   }
 }

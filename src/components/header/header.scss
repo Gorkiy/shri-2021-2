@@ -9,6 +9,7 @@
 
 .ci-server .header__title {
   margin: 0;
+  margin-right: 8px;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -23,15 +24,22 @@
 
 .header__container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .header__buttons {
   margin-left: auto;
   display: flex;
+  flex-shrink: 0;
 
   & .button:not(:last-child) {
     margin-right: 8px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .ci-server .header__title {
+    font-size: 20px;
   }
 }
 
