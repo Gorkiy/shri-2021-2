@@ -21,7 +21,7 @@ export const Settings = props => {
       setRepositoryValue(settings.repository);
       setBuildValue(settings.build);
       setBranch(settings.branch);
-      setSyncDuration(settings.duration);
+      setSyncDuration(settings.syncDuration);
     }
   }, [])
 

@@ -83,6 +83,11 @@
   }
 }
 
+.modal__error {
+  margin-top: 10px;
+  color: $color-code-fail;
+}
+
 @media screen and (max-width: $mobile-width) {
   .modal {
     top: 0;

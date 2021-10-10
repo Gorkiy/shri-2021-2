@@ -111,3 +111,18 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield; /* Firefox */
 }
+
+@media screen and (max-width: $mobile-width) {
+  .form__buttons {
+    flex-wrap: wrap;
+  }
+
+  .form__button {
+    width: 100%;
+    margin-right: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}

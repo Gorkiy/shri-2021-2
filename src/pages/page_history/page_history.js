@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Header } from '../../components/header/header';
 import { Footer } from '../../components/footer/footer';
 import { ButtonLink } from '../../components/buttonLink/buttonLink';
@@ -13,6 +13,7 @@ import { commitsMock } from '../../mock/commits';
 
 const COMMITS_PER_SLICE = 3;
 const DELAY = 2000;
+const ERROR_CHANCE = 0.2;
 
 export const History = props => {
   const { settings } = props;
@@ -20,6 +21,7 @@ export const History = props => {
   const [isBuildModalShown, showBuildModalShown] = useState(false);
   const [hash, setHashValue] = useState('');
   const [isLoading, toggleLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const onLoadMore = () => {
     setCommitsLoaded(prevLoaded => prevLoaded + COMMITS_PER_SLICE);
@@ -28,8 +30,18 @@ export const History = props => {
   const onFormSubmit = e => {
     e.preventDefault();
     toggleLoading(true);
-    setTimeout(() => toggleLoading(false), DELAY);
-    console.log('submit');
+    setError(null);
+
+    setTimeout(() => {
+      if (Math.random() > ERROR_CHANCE) {
+        showBuildModalShown(false);
+        setHashValue('');
+      } else {
+        setError('Something went wrong 🤷🏻‍♀️');
+      }
+      toggleLoading(false);
+
+    }, DELAY);
   }
 
   return (
@@ -90,6 +102,11 @@ export const History = props => {
                 onChange={setHashValue}
               />
             </div>
+            {error &&
+              <p className="modal__error text">
+                {error}
+              </p>
+            }
           </div>
           <div className="form__buttons">
             <Button
