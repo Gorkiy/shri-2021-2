@@ -28,6 +28,7 @@
     "extends": "react-app"
   },
   "dependencies": {
+    "date-fns": "^2.25.0",
     "dayjs": "^1.10.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

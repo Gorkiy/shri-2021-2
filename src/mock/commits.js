@@ -6,8 +6,7 @@ export const commitsMock = [
     branch: 'master',
     commit: '9c9f0b9',
     author: 'Philip Kirkorov',
-    date: '21 янв, 03:06',
-    ago: '1 ч 20 мин',
+    date: 1633953046432,
     status: 'done'
   },
   {
@@ -17,8 +16,7 @@ export const commitsMock = [
     branch: 'super-cool-ui-kit',
     commit: '952e5567',
     author: 'Vadim Makeev',
-    date: '21 янв, 03:06',
-    ago: '1 ч 20 мин',
+    date: 1633953046432,
     status: 'fail'
   },
   {
@@ -28,8 +26,7 @@ export const commitsMock = [
     branch: 'master',
     commit: 'b4636ab',
     author: 'Philip Kirkorov',
-    date: '21 янв, 03:06',
-    ago: '1 ч 20 мин',
+    date: 1633753046432,
     status: 'done'
   },
   {
@@ -39,8 +36,7 @@ export const commitsMock = [
     branch: 'master',
     commit: 'b4636ab',
     author: 'Philip Kirkorov',
-    date: '21 янв, 03:06',
-    ago: '1 ч 20 мин',
+    date: 1633753046432,
     status: 'pending'
   },
   {
@@ -50,8 +46,7 @@ export const commitsMock = [
     branch: 'master',
     commit: 'b4636ab',
     author: 'Philip Kirkorov',
-    date: '21 янв, 03:06',
-    ago: '1 ч 20 мин',
+    date: 1633552036432,
     status: 'done'
   },
   {
@@ -61,8 +56,7 @@ export const commitsMock = [
     branch: 'master',
     commit: '952e5567',
     author: 'Vadim Makeev',
-    date: '21 янв, 03:06',
-    ago: '1 ч 20 мин',
+    date: 1633552036432,
     status: 'fail'
   },
   {
@@ -72,8 +66,7 @@ export const commitsMock = [
     branch: 'master',
     commit: 'e41e4cc',
     author: 'Philip Kirkorov',
-    date: '21 янв, 03:06',
-    ago: '1 ч 20 мин',
+    date: 1632552036432,
     status: 'done'
   },
   {
@@ -83,8 +76,7 @@ export const commitsMock = [
     branch: 'master',
     commit: 'e41e4cc',
     author: 'Philip Kirkorov',
-    date: '21 янв, 03:06',
-    ago: '1 ч 20 мин',
+    date: 1632421036432,
     status: 'done'
   },
   {
@@ -94,8 +86,7 @@ export const commitsMock = [
     branch: 'master',
     commit: 'e41e4cc',
     author: 'Philip Kirkorov',
-    date: '21 янв, 03:06',
-    ago: '1 ч 20 мин',
+    date: 1632311036521,
     status: 'done'
   }
 ]

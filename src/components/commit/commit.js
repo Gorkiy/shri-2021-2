@@ -1,4 +1,6 @@
 import React from 'react';
+import { formatDistance, subDays, format } from 'date-fns';
+import ru from 'date-fns/locale/ru';
 import { ReactComponent as IconCal } from '../../assets/images/icon-calendar.svg';
 import { ReactComponent as IconClock } from '../../assets/images/icon-stopwatch.svg';
 import { ReactComponent as IconUser } from '../../assets/images/icon-user.svg';
@@ -26,6 +28,12 @@ export const Commit = props => {
     default:
       break;
   }
+
+  const getTimeDistance = timestamp =>
+    formatDistance(subDays(new Date(timestamp), 3), new Date(), { addSuffix: true, locale: ru });
+
+  const getFormattedDate = timestamp =>
+    format(new Date(timestamp), 'dd MMM, HH:mm', { locale: ru });
 
   return (
     <li className="commits__item commit">
@@ -63,12 +71,12 @@ export const Commit = props => {
       <div className="commit__datetime">
         <div className="commit__row commit__row_first">
           <IconCal className="commit__date-icon commit-icon" />
-          <span className="commit__date text text_secondary">{commit.date}</span>
+          <span className="commit__date text text_secondary">{getFormattedDate(commit.date)}</span>
         </div>
 
         <div className="commit__row commit__row_timestamp">
           <IconClock className="commit__timestamp-icon commit-icon" />
-          <span className="commit__timestamp text text_secondary">{commit.ago}</span>
+          <span className="commit__timestamp text text_secondary">{getTimeDistance(commit.date)}</span>
         </div>
       </div>
     </li>
