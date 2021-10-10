@@ -29,20 +29,19 @@ export const Commit = props => {
 
   return (
     <li className="commits__item commit">
-      <div className="commit__status">
-        <IconStatus />
-      </div>
-
       <div className="commit__body">
-        <div className="commit__row commit__row_first commit__row_message">
-          <span className={`commit__hash commit__hash_${commit.status}`}>
-            {commit.number}
-          </span>
+        <div className="commit__row commit__row_first commit__row_left commit__row_message">
+          <div className="commit__status">
+            <IconStatus className="commit__status-icon" />
+            <span className={`commit__hash commit__hash_${commit.status}`}>
+              {commit.number}
+            </span>
+          </div>
           <span className="commit__message">
             {commit.message}
           </span>
         </div>
-        <div className="commit__row">
+        <div className="commit__row commit__row_left commit__row_branch">
           <div className="commit__branch text">
             <IconCommit className="commit__branch-icon commit-icon" />
             <span className="commit__branch-name">

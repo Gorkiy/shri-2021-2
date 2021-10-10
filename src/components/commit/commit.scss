@@ -21,17 +21,24 @@
 
 .commit__status {
   flex-shrink: 0;
-  margin-right: 10px;
+}
+
+.commit__status-icon {
+  position: absolute;
+  left: 0;
+  top: -2px;
 }
 
 .commit__body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .commit__datetime {
   width: 120px;
+  flex-shrink: 0;
 }
 
 .commit__row {
@@ -44,6 +51,11 @@
 
   &_first {
     margin-bottom: 8px;
+  }
+
+  &_left {
+    padding-left: 30px;
+    position: relative;
   }
 }
 
@@ -66,7 +78,9 @@
   }
 }
 
-.commit__mesage {
+.commit__message {
+  @include text-overflow();
+  padding-right: 20px;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
@@ -76,11 +90,13 @@
 .commit__branch {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .commit__author {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .commit__commit {
@@ -108,3 +124,77 @@
 .commit__date {
   line-height: 1;
 }
+
+@media screen and (max-width: $tablet-width) {
+  .commit {
+    flex-wrap: wrap;
+  }
+
+  .commit__datetime {
+    padding-top: 8px;
+    width: 100%;
+    flex-direction: row;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+
+    & .commit__row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    & .commit__row_timestamp {
+      margin-left: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .commit__row {
+    flex-direction: column;
+
+    &_left {
+      padding-left: 0;
+    }
+
+    &_branch {
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  .commit__status {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .commit__status-icon {
+    position: static;
+    margin-right: 8px;
+  }
+
+  .commit__message {
+    white-space: normal;
+    overflow: unset;
+  }
+
+  .commit__author {
+    padding: 8px 0;
+    width: 100%;
+  }
+
+  .commit__datetime {
+    padding-left: 0;
+    width: 100%;
+    border-top: 1px solid #f0f2f3;
+
+    & .commit__row {
+      flex-direction: row;
+    }
+  }
+}
+
+// border-top: 1px solid #f0f2f3;
