@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 import { Button } from '../../components/button/button';
 import { Header } from '../../components/header/header';
 import { Input } from '../../components/input/input';
 import { Footer } from '../../components/footer/footer';
+import { useSelector, useDispatch } from 'react-redux';
 import './page_settings.scss';
+import { updateSettings } from '../../features/settings/settings';
 
 export const Settings = props => {
-  const { settings, onChange } = props;
   const [repository, setRepositoryValue] = useState('');
   const [build, setBuildValue] = useState('npm ci && npm run build');
   const [branch, setBranch] = useState('');
@@ -15,27 +16,28 @@ export const Settings = props => {
   const [isSubmitted, setSubmitted] = useState(false);
   const formRef = useRef(null);
   const history = useHistory();
+  const settings = useSelector((state) => state.settings.value);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (settings) {
-      setRepositoryValue(settings.repository);
-      setBuildValue(settings.build);
-      setBranch(settings.branch);
-      setSyncDuration(settings.syncDuration);
-    }
+    setRepositoryValue(settings.repository);
+    setBuildValue(settings.build);
+    setBranch(settings.branch);
+    setSyncDuration(settings.syncDuration);
   }, [])
 
   const onFormSubmit = e => {
     e.preventDefault();
 
-    onChange({
+    dispatch(updateSettings({
       repository,
       build,
       branch,
       syncDuration
-    });
+    }));
 
     setSubmitted(true);
+    props.onChange();
   }
 
   if (isSubmitted) {

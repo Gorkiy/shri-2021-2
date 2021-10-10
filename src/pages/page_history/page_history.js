@@ -10,13 +10,14 @@ import './page_history.scss';
 import { ReactComponent as IconSettings } from '../../assets/images/icon-settings.svg';
 import { ReactComponent as IconPlay } from '../../assets/images/icon-play.svg';
 import { commitsMock } from '../../mock/commits';
+import { useSelector } from 'react-redux';
 
 const COMMITS_PER_SLICE = 3;
 const DELAY = 2000;
 const ERROR_CHANCE = 0.2;
 
-export const History = props => {
-  const { settings } = props;
+export const History = () => {
+  const settings = useSelector((state) => state.settings.value);
   const [commitsLoaded, setCommitsLoaded] = useState(COMMITS_PER_SLICE);
   const [isBuildModalShown, showBuildModalShown] = useState(false);
   const [hash, setHashValue] = useState('');

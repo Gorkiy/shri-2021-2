@@ -14,9 +14,8 @@ const App = () => {
   const [isSettignsInited, initSettings] = useState(false);
   const [settings, setSettings] = useState(null);
 
-  const onSettingsChange = data => {
+  const onSettingsChange = () => {
     if (!isSettignsInited) initSettings(true);
-    setSettings(data);
   }
 
   return (
